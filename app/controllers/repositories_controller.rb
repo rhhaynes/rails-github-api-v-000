@@ -16,7 +16,7 @@ class RepositoriesController < ApplicationController
       req.headers["Authorization"] = "token " + session[:token]
       req.headers["Accept"] = "application/json"
       req.headers["Content-Type"] = "application/json"
-      req.body = JSON.generate({"name": params[:name], "redirect_uri": "http://localhost:3000/"})
+      req.body = JSON.generate({"name": params[:name]})
     end
     redirect_to root_path
   end
