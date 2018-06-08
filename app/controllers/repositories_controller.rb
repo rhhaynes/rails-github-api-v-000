@@ -12,7 +12,7 @@ class RepositoriesController < ApplicationController
 
   def create
     conn = Faraday.new(:url => "https://api.github.com/user/repos")
-    Faraday.post("https://api.github.com/user/repos") do |req|
+    conn.post do |req|
       req.headers["Authorization"] = "token " + session[:token]
       req.headers["Content-Type"] = "application/json"
       req.body = JSON.generate({"name": params[:name]})
