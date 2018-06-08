@@ -13,7 +13,7 @@ class RepositoriesController < ApplicationController
   def create
     Faraday.post("https://api.github.com/user/repos") do |req|
       req.headers = {"Authorization" => "token #{session[:token]}"}
-      req.headers['Content-Type'] = 'application/json'
+      req.headers["Content-Type"] = "application/json"
       req.body = {JSON.generate({"name": params[:name]}) => true}
     end
     redirect_to root_path
