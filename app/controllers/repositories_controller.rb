@@ -13,7 +13,7 @@ class RepositoriesController < ApplicationController
   def create
     xx = Faraday.post("https://api.github.com/user/repos") do |req|
       req.headers = {"Authorization" => "token #{session[:token]}"}
-      req.body = {"name" => "a-new-repo"}
+      req.body = {{"name" => "a-new-repo"} => true}
     end
     binding.pry
     redirect_to root_path
