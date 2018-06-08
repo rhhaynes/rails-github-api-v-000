@@ -1,5 +1,5 @@
 <div class = "container">
-  <h1>Repos<%= " for #{@session[""]}" if @user %></h1>
+  <h1>Repos<%= " for #{@session[:username]}" if @user %></h1>
   <% if @repos %>
     <div>
       <ul>
