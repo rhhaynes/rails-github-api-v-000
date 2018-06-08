@@ -17,6 +17,7 @@ class RepositoriesController < ApplicationController
       req.body = "{\"name\": \"a-new-repo\"}"
       binding.pry
     end
+    binding.pry
     redirect_to root_path
   end
 end
