@@ -15,7 +15,6 @@ class RepositoriesController < ApplicationController
       req.headers = {"Authorization" => "token #{session[:token]}"}
       req.body = {JSON.generate({"name" => params[:name]}) => true}
     end
-    binding.pry
     render :index
   end
 end
