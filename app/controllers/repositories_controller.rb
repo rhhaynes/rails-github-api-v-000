@@ -18,6 +18,7 @@ class RepositoriesController < ApplicationController
       req.headers["Content-Type"] = "application/json"
       req.body = JSON.generate({"name": params[:name]})
     end
+    binding.pry
     redirect_to root_path
   end
 end
