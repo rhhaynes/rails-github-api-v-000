@@ -12,7 +12,7 @@ class RepositoriesController < ApplicationController
 
   def create
     xx = Faraday.post("https://api.github.com/user/repos") do |req|
-      req.headers = {"Authorization" => "token #{session[:token]}"}
+      req.headers = {"Authorization" => "token #{session[:token]}", 'Content-Type' => 'application/x-www-form-urlencoded'}
       req.body = {"name" => params[:name]}
     end
     binding.pry
