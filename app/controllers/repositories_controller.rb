@@ -16,7 +16,7 @@ class RepositoriesController < ApplicationController
       req.headers["Authorization"] = "token " + session[:token]
       req.headers["Accept"] = "application/json"
       req.headers["Content-Type"] = "application/json"
-      req.body = JSON.generate({"name": params[:name]})
+      req.body = JSON.generate({"name": params[:name], "redirect_uri": root_path})
     end
     
     # conn.post('/v3/oauth/request', {consumer_key: 'key', redirect_uri: 'localhost:3000'}, { 'X-Accept' => 'application/json' })
