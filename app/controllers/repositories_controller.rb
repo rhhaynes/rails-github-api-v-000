@@ -14,9 +14,14 @@ class RepositoriesController < ApplicationController
     conn = Faraday.new(:url => "https://api.github.com/user/repos")
     conn.post do |req|
       req.headers["Authorization"] = "token " + session[:token]
+      req.headers["Accept"] = "application/json"
       req.headers["Content-Type"] = "application/json"
       req.body = JSON.generate({"name": params[:name]})
     end
+    
+    # conn.post('/v3/oauth/request', {consumer_key: 'key', redirect_uri: 'localhost:3000'}, { 'X-Accept' => 'application/json' })
+    
+    
     redirect_to root_path
   end
 end
