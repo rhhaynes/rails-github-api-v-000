@@ -1,6 +1,5 @@
 <div class = "container">
-  <h1>Repos<%= " for #{@session[:username]}" if @user %></h1>
-  <% if @repos %>
+  <h1><%= session[:username]} %> Repos</h1>
     <div>
       <ul>
         <%= @repos.each do |repo| %>
@@ -11,7 +10,6 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
   <%= form_tag("/repositories/create", method: "post") do %>
     <%= label_tag(:name, "Create a New Repo:") %>
     <%= text_field_tag(:name, nil, id: "new-repo") %>
